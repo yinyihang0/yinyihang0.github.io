@@ -16,12 +16,12 @@
 <meta property="og:image" content="http://example.com/assets/image-20231101165856137.png">
 <meta property="og:image" content="http://example.com/assets/image-20231101165856137.png">
 <meta property="og:image" content="http://example.com/assets/image-20231101165935627.png">
-<meta property="og:image" content="http://example.com/2023/11/13/%E5%85%A8%E7%90%83%E6%B8%A9%E5%BA%A6%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96/assets/image-20231101170020496.png">
-<meta property="og:image" content="http://example.com/2023/11/13/%E5%85%A8%E7%90%83%E6%B8%A9%E5%BA%A6%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96/assets/image-20231101170421003.png">
+<meta property="og:image" content="http://example.com/assets/image-20231101170020496.png">
+<meta property="og:image" content="http://example.com/assets/image-20231101170421003.png">
 <meta property="og:image" content="http://example.com/assets/image-20231101204307873.png">
 <meta property="og:image" content="http://example.com/assets/image-20231101204333112.png">
 <meta property="article:published_time" content="2023-11-13T11:30:06.000Z">
-<meta property="article:modified_time" content="2023-11-13T11:39:42.422Z">
+<meta property="article:modified_time" content="2023-11-20T14:11:52.632Z">
 <meta property="article:author" content="YYH">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://example.com/assets/image-20231101165856137.png">
@@ -89,6 +89,8 @@
     <br/>
     <span id="actions">
       <ul>
+        
+        <li><a class="icon" aria-label="Previous post" href="/2023/11/20/VAE/"><i class="fa-solid fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
         
         
         <li><a class="icon" aria-label="Next post" href="/2023/11/13/hello-world/"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
@@ -162,7 +164,7 @@
 
   <div class="content e-content" itemprop="articleBody">
     <hr>
-<p><img src="/./assets/image-20231101165856137.png" alt="image-20231101165856137"></p>
+<p><img src="/assets/image-20231101165856137.png" alt="image-20231101165856137"></p>
 <p>课设网页（加载可能需要等待一段时间）：<a target="_blank" rel="noopener" href="https://yyhaccount.shinyapps.io/project1/">全球温度数据可视化 (shinyapps.io)</a></p>
 <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>这是一个由Shiny驱动、采用<em><strong>echarts4R</strong></em>进行动态交互展示的应用，致力于呈现全球各国和城市的气温数据。在此应用中，按照十年为一个单位整理了全球的历史温度数据，并在地图上进行了直观的可视化。用户可通过点击界面下方的按钮选择特定年份进行查看，或直接点击<em><strong>时间轴</strong></em>上的播放按钮，进行自动循环播放。</p>
 <p>下方的折线图详细展示了年度与月度的气温平均值。用户可自主选择查看“每年”或“每月”的数据，还可以<em><strong>拖动时间轴</strong></em>，来查看特定时段的气温变化。</p>
@@ -430,7 +432,7 @@
 </tbody></table>
 <p>这样是否符合您的要求？</p>
 <p>这样的表格形式可以清晰地表示数据的来源和处理，使得读者更容易理解。</p>
-<h2 id="shiny程序"><a href="#shiny程序" class="headerlink" title="shiny程序"></a>shiny程序</h2><h3 id="UI"><a href="#UI" class="headerlink" title="UI"></a>UI</h3><h4 id="界面设置"><a href="#界面设置" class="headerlink" title="界面设置"></a>界面设置</h4><p>最后的用户界面展示如下：<br><img src="/./assets/image-20231101165856137.png" alt="image-20231101165856137"><br>在本应用中，我们采用了<code>dashboardPage</code>来构建一个具有标题、侧边栏和主体内容的仪表板布局。</p>
+<h2 id="shiny程序"><a href="#shiny程序" class="headerlink" title="shiny程序"></a>shiny程序</h2><h3 id="UI"><a href="#UI" class="headerlink" title="UI"></a>UI</h3><h4 id="界面设置"><a href="#界面设置" class="headerlink" title="界面设置"></a>界面设置</h4><p>最后的用户界面展示如下：<br><img src="/assets/image-20231101165856137.png" alt="image-20231101165856137"><br>在本应用中，我们采用了<code>dashboardPage</code>来构建一个具有标题、侧边栏和主体内容的仪表板布局。</p>
 <h5 id="侧边栏"><a href="#侧边栏" class="headerlink" title="侧边栏"></a>侧边栏</h5><p>侧边栏的设计旨在提供交互性功能与简要介绍：</p>
 <ul>
 <li><strong>时间刻度选择</strong>：通过<code>selectizeInput</code>，用户可以选择所需的时间刻度。</li>
@@ -501,9 +503,9 @@
 <li><code>get_city_by_country</code>：根据国家名称获取其主要城市的信息。</li>
 </ul>
 <p>通过这种方式，我们能够保持主程序的简洁性，同时将特定的功能和逻辑封装在独立的函数中，提高代码的可读性和维护性。</p>
-<h4 id="图像绘制"><a href="#图像绘制" class="headerlink" title="图像绘制"></a>图像绘制</h4><p><img src="/./assets/image-20231101165935627.png" alt="image-20231101165935627"></p>
+<h4 id="图像绘制"><a href="#图像绘制" class="headerlink" title="图像绘制"></a>图像绘制</h4><p><img src="/assets/image-20231101165935627.png" alt="image-20231101165935627"></p>
 <p>该项目中主要涉及到三种不同的图形：<br>地图、折线图，时间序列分解图，下面分别进行介绍</p>
-<h5 id="地图"><a href="#地图" class="headerlink" title="地图"></a>地图</h5><p><img src="./assets/image-20231101170020496.png" alt="image-20231101170020496" style="zoom:35%;" />            <img src="./assets/image-20231101170421003.png" alt="image-20231101170421003" style="zoom:70%;" />    </p>
+<h5 id="地图"><a href="#地图" class="headerlink" title="地图"></a>地图</h5><p><img src="/assets/image-20231101170020496.png" alt="image-20231101170020496" style="zoom:35%;" />            <img src="/assets/image-20231101170421003.png" alt="image-20231101170421003" style="zoom:70%;" />    </p>
 <p>该部分是整个项目的核心，对温度数据进行了地图展示。不仅仅是一个静态的地图，而是通过结合<code>echarts</code>、<code>echarts4R</code>和<code>JS</code>技术，实现了动态交互的功能：</p>
 <ol>
 <li><p><strong>时间轴的展示</strong>：为用户提供了时间上的参考，使其可以在不同年份间流畅地切换，观察温度变化。</p>
@@ -545,13 +547,13 @@
 </li>
 </ol>
 <p>此外，我们使用了<code>console.log()</code>函数来在浏览器的开发者控制台中打印相关信息。这对于开发和调试过程非常有帮助，因为它允许我们直观地看到在不同操作下触发的事件的详细信息。</p>
-<h5 id="折线图"><a href="#折线图" class="headerlink" title="折线图"></a>折线图</h5><p><img src="/./assets/image-20231101204307873.png" alt="image-20231101204307873"></p>
+<h5 id="折线图"><a href="#折线图" class="headerlink" title="折线图"></a>折线图</h5><p><img src="/assets/image-20231101204307873.png" alt="image-20231101204307873"></p>
 <p>当用户在地图上点击某一城市时，我们的应用程序会动态地更新并在折线图上展示该城市的平均数据。为了实现这一效果，我们参考并使用了<code>echarts4r</code>库中的<code>e_line_</code>函数。</p>
 <p>具体地说，<code>e_line_</code>函数允许我们在ECharts图表中添加折线系列。结合Shiny的反应性，当用户点击一个城市时，我们可以获取对应的数据，并利用<code>e_line_</code>为当前的图表添加新的折线系列，从而动态展示该城市的平均数据。</p>
 <p>核心的代码如下：</p>
 <figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span><span class="punctuation">(</span>column_name <span class="keyword">in</span> columns_to_plot<span class="punctuation">)</span> <span class="punctuation">&#123;</span></span><br><span class="line">  chart <span class="operator">&lt;-</span> chart <span class="operator">|&gt;</span> e_line_<span class="punctuation">(</span>column_name<span class="punctuation">,</span> name <span class="operator">=</span> column_name<span class="punctuation">)</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
 
-<h5 id="时序分解"><a href="#时序分解" class="headerlink" title="时序分解"></a>时序分解</h5><p><img src="/./assets/image-20231101204333112.png" alt="image-20231101204333112"></p>
+<h5 id="时序分解"><a href="#时序分解" class="headerlink" title="时序分解"></a>时序分解</h5><p><img src="/assets/image-20231101204333112.png" alt="image-20231101204333112"></p>
 <p>在时序分解部分，由于<code>echarts4r</code>对这一特定功能的支持并不完善，我们选择直接使用R的基础<code>plot</code>函数进行绘图。这样产生的图像是静态的，与<code>echarts4r</code>所生成的动态互动图表有所不同。</p>
 
   </div>
