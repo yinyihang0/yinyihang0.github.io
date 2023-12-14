@@ -6,12 +6,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
-    <meta name="description" content="课设网页（加载可能需要等待一段时间）：全球温度数据可视化 (shinyapps.io) 简介 这是一个由Shiny驱动、采用echarts4R进行动态交互展示的应用，致力于呈现全球各国和城市的气温数据。在此应用中，按照十年为一个单位整理了全球的历史温度数据，并在地图上进行了直观的可视化。用户可通过点击界面下方的按钮选择特定年份进行查看，或直接点击时间轴上的播放按钮，进行自动循环播放。">
+    <meta name="description" content="课设网页（加载可能需要等待一段时间）：全球温度数据可视化 (shinyapps.io) 简介这是一个由Shiny驱动、采用echarts4R进行动态交互展示的应用，致力于呈现全球各国和城市的气温数据。在此应用中，按照十年为一个单位整理了全球的历史温度数据，并在地图上进行了直观的可视化。用户可通过点击界面下方的按钮选择特定年份进行查看，或直接点击时间轴上的播放按钮，进行自动循环播放。 下方的折线">
 <meta property="og:type" content="article">
 <meta property="og:title" content="全球温度可视化">
 <meta property="og:url" content="http://example.com/2023/11/13/%E5%85%A8%E7%90%83%E6%B8%A9%E5%BA%A6%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96/index.html">
 <meta property="og:site_name" content="YYH&#39;s Blog">
-<meta property="og:description" content="课设网页（加载可能需要等待一段时间）：全球温度数据可视化 (shinyapps.io) 简介 这是一个由Shiny驱动、采用echarts4R进行动态交互展示的应用，致力于呈现全球各国和城市的气温数据。在此应用中，按照十年为一个单位整理了全球的历史温度数据，并在地图上进行了直观的可视化。用户可通过点击界面下方的按钮选择特定年份进行查看，或直接点击时间轴上的播放按钮，进行自动循环播放。">
+<meta property="og:description" content="课设网页（加载可能需要等待一段时间）：全球温度数据可视化 (shinyapps.io) 简介这是一个由Shiny驱动、采用echarts4R进行动态交互展示的应用，致力于呈现全球各国和城市的气温数据。在此应用中，按照十年为一个单位整理了全球的历史温度数据，并在地图上进行了直观的可视化。用户可通过点击界面下方的按钮选择特定年份进行查看，或直接点击时间轴上的播放按钮，进行自动循环播放。 下方的折线">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://example.com/assets/image-20231101165856137.png">
 <meta property="og:image" content="http://example.com/assets/image-20231101165856137.png">
@@ -121,7 +121,7 @@
     
     
       <div id="toc">
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AE%80%E4%BB%8B"><span class="toc-number">1.</span> <span class="toc-text">简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E9%A2%84%E5%A4%84%E7%90%86"><span class="toc-number">2.</span> <span class="toc-text">数据预处理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E4%BB%8B%E7%BB%8D"><span class="toc-number">2.1.</span> <span class="toc-text">数据介绍</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#globaltemperaturescsv"><span class="toc-number">2.1.1.</span> <span class="toc-text">GlobalTemperatures.csv</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#globallandtemperaturesbycountrycsv"><span class="toc-number">2.1.2.</span> <span class="toc-text">GlobalLandTemperaturesByCountry.csv</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#globallandtemperaturesbystatecsv"><span class="toc-number">2.1.3.</span> <span class="toc-text">GlobalLandTemperaturesByState.csv</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#globallandtemperaturesbymajorcitycsv"><span class="toc-number">2.1.4.</span> <span class="toc-text">GlobalLandTemperaturesByMajorCity.csv</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#globallandtemperaturesbycitycsv"><span class="toc-number">2.1.5.</span> <span class="toc-text">GlobalLandTemperaturesByCity.csv</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E9%A2%84%E5%A4%84%E7%90%86-1"><span class="toc-number">2.2.</span> <span class="toc-text">数据预处理</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#shiny%E7%A8%8B%E5%BA%8F"><span class="toc-number">3.</span> <span class="toc-text">shiny程序</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#ui"><span class="toc-number">3.1.</span> <span class="toc-text">UI</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%95%8C%E9%9D%A2%E8%AE%BE%E7%BD%AE"><span class="toc-number">3.1.1.</span> <span class="toc-text">界面设置</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%BE%A7%E8%BE%B9%E6%A0%8F"><span class="toc-number">3.1.1.1.</span> <span class="toc-text">侧边栏</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%B8%BB%E4%BD%93"><span class="toc-number">3.1.1.2.</span> <span class="toc-text">主体</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A0%B7%E5%BC%8F%E8%AE%BE%E7%BD%AE"><span class="toc-number">3.1.2.</span> <span class="toc-text">样式设置</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89js"><span class="toc-number">3.1.3.</span> <span class="toc-text">自定义JS</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#server"><span class="toc-number">3.2.</span> <span class="toc-text">server</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE"><span class="toc-number">3.2.1.</span> <span class="toc-text">数据</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%9C%B0%E5%9B%BE%E7%9B%B8%E5%85%B3%E7%9A%84%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86"><span class="toc-number">3.2.1.1.</span> <span class="toc-text">地图相关的数据处理</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E9%A2%84%E5%85%88%E8%8E%B7%E5%8F%96%E7%9A%84%E6%95%B0%E6%8D%AE"><span class="toc-number">3.2.1.2.</span> <span class="toc-text">预先获取的数据</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%8F%8D%E5%BA%94%E5%80%BC"><span class="toc-number">3.2.1.3.</span> <span class="toc-text">反应值</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%A4%96%E9%83%A8%E5%87%BD%E6%95%B0"><span class="toc-number">3.2.2.</span> <span class="toc-text">外部函数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9B%BE%E5%83%8F%E7%BB%98%E5%88%B6"><span class="toc-number">3.2.3.</span> <span class="toc-text">图像绘制</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%9C%B0%E5%9B%BE"><span class="toc-number">3.2.3.1.</span> <span class="toc-text">地图</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E5%9B%BD%E5%AE%B6%E4%B8%8E%E5%9F%8E%E5%B8%82%E6%94%BE%E5%9C%A8%E8%81%94%E5%90%88%E6%B8%B2%E6%9F%93"><span class="toc-number">3.2.3.1.1.</span> <span class="toc-text">国家与城市放在联合渲染</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E7%82%B9%E5%87%BB%E4%BA%8B%E4%BB%B6"><span class="toc-number">3.2.3.1.2.</span> <span class="toc-text">点击事件</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%8A%98%E7%BA%BF%E5%9B%BE"><span class="toc-number">3.2.3.2.</span> <span class="toc-text">折线图</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%97%B6%E5%BA%8F%E5%88%86%E8%A7%A3"><span class="toc-number">3.2.3.3.</span> <span class="toc-text">时序分解</span></a></li></ol></li></ol></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AE%80%E4%BB%8B"><span class="toc-number">1.</span> <span class="toc-text">简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E9%A2%84%E5%A4%84%E7%90%86"><span class="toc-number">2.</span> <span class="toc-text">数据预处理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E4%BB%8B%E7%BB%8D"><span class="toc-number">2.1.</span> <span class="toc-text">数据介绍</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#GlobalTemperatures-csv"><span class="toc-number">2.1.1.</span> <span class="toc-text">GlobalTemperatures.csv</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#GlobalLandTemperaturesByCountry-csv"><span class="toc-number">2.1.2.</span> <span class="toc-text">GlobalLandTemperaturesByCountry.csv</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#GlobalLandTemperaturesByState-csv"><span class="toc-number">2.1.3.</span> <span class="toc-text">GlobalLandTemperaturesByState.csv</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#GlobalLandTemperaturesByMajorCity-csv"><span class="toc-number">2.1.4.</span> <span class="toc-text">GlobalLandTemperaturesByMajorCity.csv</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#GlobalLandTemperaturesByCity-csv"><span class="toc-number">2.1.5.</span> <span class="toc-text">GlobalLandTemperaturesByCity.csv</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E9%A2%84%E5%A4%84%E7%90%86-1"><span class="toc-number">2.2.</span> <span class="toc-text">数据预处理</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#shiny%E7%A8%8B%E5%BA%8F"><span class="toc-number">3.</span> <span class="toc-text">shiny程序</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#UI"><span class="toc-number">3.1.</span> <span class="toc-text">UI</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%95%8C%E9%9D%A2%E8%AE%BE%E7%BD%AE"><span class="toc-number">3.1.1.</span> <span class="toc-text">界面设置</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%BE%A7%E8%BE%B9%E6%A0%8F"><span class="toc-number">3.1.1.1.</span> <span class="toc-text">侧边栏</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%B8%BB%E4%BD%93"><span class="toc-number">3.1.1.2.</span> <span class="toc-text">主体</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A0%B7%E5%BC%8F%E8%AE%BE%E7%BD%AE"><span class="toc-number">3.1.2.</span> <span class="toc-text">样式设置</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89JS"><span class="toc-number">3.1.3.</span> <span class="toc-text">自定义JS</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#server"><span class="toc-number">3.2.</span> <span class="toc-text">server</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE"><span class="toc-number">3.2.1.</span> <span class="toc-text">数据</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%9C%B0%E5%9B%BE%E7%9B%B8%E5%85%B3%E7%9A%84%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86"><span class="toc-number">3.2.1.1.</span> <span class="toc-text">地图相关的数据处理</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E9%A2%84%E5%85%88%E8%8E%B7%E5%8F%96%E7%9A%84%E6%95%B0%E6%8D%AE"><span class="toc-number">3.2.1.2.</span> <span class="toc-text">预先获取的数据</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%8F%8D%E5%BA%94%E5%80%BC"><span class="toc-number">3.2.1.3.</span> <span class="toc-text">反应值</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%A4%96%E9%83%A8%E5%87%BD%E6%95%B0"><span class="toc-number">3.2.2.</span> <span class="toc-text">外部函数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9B%BE%E5%83%8F%E7%BB%98%E5%88%B6"><span class="toc-number">3.2.3.</span> <span class="toc-text">图像绘制</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%9C%B0%E5%9B%BE"><span class="toc-number">3.2.3.1.</span> <span class="toc-text">地图</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E5%9B%BD%E5%AE%B6%E4%B8%8E%E5%9F%8E%E5%B8%82%E6%94%BE%E5%9C%A8%E8%81%94%E5%90%88%E6%B8%B2%E6%9F%93"><span class="toc-number">3.2.3.1.1.</span> <span class="toc-text">国家与城市放在联合渲染</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E7%82%B9%E5%87%BB%E4%BA%8B%E4%BB%B6"><span class="toc-number">3.2.3.1.2.</span> <span class="toc-text">点击事件</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%8A%98%E7%BA%BF%E5%9B%BE"><span class="toc-number">3.2.3.2.</span> <span class="toc-text">折线图</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%97%B6%E5%BA%8F%E5%88%86%E8%A7%A3"><span class="toc-number">3.2.3.3.</span> <span class="toc-text">时序分解</span></a></li></ol></li></ol></li></ol></li></ol>
       </div>
     
   </span>
@@ -161,400 +161,319 @@
   
 
   <div class="content e-content" itemprop="articleBody">
-    <hr />
-<p><img src="/assets/image-20231101165856137.png"
-alt="image-20231101165856137" /></p>
-<p>课设网页（加载可能需要等待一段时间）：<a
-target="_blank" rel="noopener" href="https://yyhaccount.shinyapps.io/project1/">全球温度数据可视化
-(shinyapps.io)</a></p>
-<h2 id="简介">简介</h2>
-<p>这是一个由Shiny驱动、采用<strong><em>echarts4R</em></strong>进行动态交互展示的应用，致力于呈现全球各国和城市的气温数据。在此应用中，按照十年为一个单位整理了全球的历史温度数据，并在地图上进行了直观的可视化。用户可通过点击界面下方的按钮选择特定年份进行查看，或直接点击<strong><em>时间轴</em></strong>上的播放按钮，进行自动循环播放。</p>
-<p>下方的折线图详细展示了年度与月度的气温平均值。用户可自主选择查看“每年”或“每月”的数据，还可以<strong><em>拖动时间轴</em></strong>，来查看特定时段的气温变化。</p>
-<p>在左侧的全球地图中，当<strong><em>点击某一国家</em></strong>，将在右侧的小地图及下方的折线图中看到该国的详细气温数据。若选择在全球地图或某国的小地图上点击某一城市，该国家/城市的气温走势将会在下方的折线图进行呈现。值得注意的是，世界地图中仅展示了各主要城市，在小地图中，除了主要城市外，还会展现其他重要城市的信息。</p>
+    <hr>
+<p><img src="/assets/image-20231101165856137.png" alt="image-20231101165856137"></p>
+<p>课设网页（加载可能需要等待一段时间）：<a target="_blank" rel="noopener" href="https://yyhaccount.shinyapps.io/project1/">全球温度数据可视化 (shinyapps.io)</a></p>
+<h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>这是一个由Shiny驱动、采用<em><strong>echarts4R</strong></em>进行动态交互展示的应用，致力于呈现全球各国和城市的气温数据。在此应用中，按照十年为一个单位整理了全球的历史温度数据，并在地图上进行了直观的可视化。用户可通过点击界面下方的按钮选择特定年份进行查看，或直接点击<em><strong>时间轴</strong></em>上的播放按钮，进行自动循环播放。</p>
+<p>下方的折线图详细展示了年度与月度的气温平均值。用户可自主选择查看“每年”或“每月”的数据，还可以<em><strong>拖动时间轴</strong></em>，来查看特定时段的气温变化。</p>
+<p>在左侧的全球地图中，当<em><strong>点击某一国家</strong></em>，将在右侧的小地图及下方的折线图中看到该国的详细气温数据。若选择在全球地图或某国的小地图上点击某一城市，该国家&#x2F;城市的气温走势将会在下方的折线图进行呈现。值得注意的是，世界地图中仅展示了各主要城市，在小地图中，除了主要城市外，还会展现其他重要城市的信息。</p>
 <p>最后，如果选择了“每月”作为时间尺度，还会对数据进行简单的时序分解。</p>
-<h2 id="数据预处理">数据预处理</h2>
-<h3 id="数据介绍">数据介绍</h3>
-<p>本数据集由5个<code>CSV</code>文件组成，各文件内数据含义及其格式如下：</p>
-<h4 id="globaltemperaturescsv"><code>GlobalTemperatures.csv</code></h4>
-<p>全球历史地表温度数据，包括陆地均值、极值和陆海均值。</p>
+<h2 id="数据预处理"><a href="#数据预处理" class="headerlink" title="数据预处理"></a>数据预处理</h2><h3 id="数据介绍"><a href="#数据介绍" class="headerlink" title="数据介绍"></a>数据介绍</h3><p>本数据集由5个<code>CSV</code>文件组成，各文件内数据含义及其格式如下：</p>
+<h4 id="GlobalTemperatures-csv"><a href="#GlobalTemperatures-csv" class="headerlink" title="GlobalTemperatures.csv"></a><code>GlobalTemperatures.csv</code></h4><p>全球历史地表温度数据，包括陆地均值、极值和陆海均值。</p>
 <table>
-<colgroup>
-<col style="width: 47%" />
-<col style="width: 9%" />
-<col style="width: 43%" />
-</colgroup>
 <thead>
-<tr class="header">
-<th style="text-align: left;">字段名</th>
-<th style="text-align: center;">数据类型</th>
-<th style="text-align: left;">简介</th>
+<tr>
+<th align="left">字段名</th>
+<th align="center">数据类型</th>
+<th align="left">简介</th>
 </tr>
 </thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">dt</td>
-<td style="text-align: center;"><code>date</code></td>
-<td
-style="text-align: left;">按月间隔，自<code>1750-01-01</code>至<code>2015-12-01</code></td>
+<tbody><tr>
+<td align="left">dt</td>
+<td align="center"><code>date</code></td>
+<td align="left">按月间隔，自<code>1750-01-01</code>至<code>2015-12-01</code></td>
 </tr>
-<tr class="even">
-<td style="text-align: left;">LandAverageTemperature</td>
-<td style="text-align: center;"><code>double</code></td>
-<td style="text-align: left;">陆地每月平均温度</td>
+<tr>
+<td align="left">LandAverageTemperature</td>
+<td align="center"><code>double</code></td>
+<td align="left">陆地每月平均温度</td>
 </tr>
-<tr class="odd">
-<td style="text-align: left;">LandAverageTemperatureUncertainty</td>
-<td style="text-align: center;"><code>double</code></td>
-<td style="text-align: left;">陆地每月平均温度区间</td>
+<tr>
+<td align="left">LandAverageTemperatureUncertainty</td>
+<td align="center"><code>double</code></td>
+<td align="left">陆地每月平均温度区间</td>
 </tr>
-<tr class="even">
-<td style="text-align: left;">LandMaxTemperature</td>
-<td style="text-align: center;"><code>double</code></td>
-<td style="text-align: left;">陆地每月最高温度</td>
+<tr>
+<td align="left">LandMaxTemperature</td>
+<td align="center"><code>double</code></td>
+<td align="left">陆地每月最高温度</td>
 </tr>
-<tr class="odd">
-<td style="text-align: left;">LandMaxTemperatureUncertainty</td>
-<td style="text-align: center;"><code>double</code></td>
-<td style="text-align: left;">陆地每月最高温度区间</td>
+<tr>
+<td align="left">LandMaxTemperatureUncertainty</td>
+<td align="center"><code>double</code></td>
+<td align="left">陆地每月最高温度区间</td>
 </tr>
-<tr class="even">
-<td style="text-align: left;">LandMinTemperature</td>
-<td style="text-align: center;"><code>double</code></td>
-<td style="text-align: left;">陆地每月最低温度</td>
+<tr>
+<td align="left">LandMinTemperature</td>
+<td align="center"><code>double</code></td>
+<td align="left">陆地每月最低温度</td>
 </tr>
-<tr class="odd">
-<td style="text-align: left;">LandMinTemperatureUncertainty</td>
-<td style="text-align: center;"><code>double</code></td>
-<td style="text-align: left;">陆地每月最低温度区间</td>
+<tr>
+<td align="left">LandMinTemperatureUncertainty</td>
+<td align="center"><code>double</code></td>
+<td align="left">陆地每月最低温度区间</td>
 </tr>
-<tr class="even">
-<td style="text-align: left;">LandAndOceanAverageTemperature</td>
-<td style="text-align: center;"><code>double</code></td>
-<td style="text-align: left;">陆海每月平均温度</td>
+<tr>
+<td align="left">LandAndOceanAverageTemperature</td>
+<td align="center"><code>double</code></td>
+<td align="left">陆海每月平均温度</td>
 </tr>
-<tr class="odd">
-<td
-style="text-align: left;">LandAndOceanAverageTemperatureUncertainty</td>
-<td style="text-align: center;"><code>double</code></td>
-<td style="text-align: left;">陆海每月平均温度区间</td>
+<tr>
+<td align="left">LandAndOceanAverageTemperatureUncertainty</td>
+<td align="center"><code>double</code></td>
+<td align="left">陆海每月平均温度区间</td>
 </tr>
-</tbody>
-</table>
-<h4
-id="globallandtemperaturesbycountrycsv"><code>GlobalLandTemperaturesByCountry.csv</code></h4>
-<p>全球各国平均每月温度数据。</p>
+</tbody></table>
+<h4 id="GlobalLandTemperaturesByCountry-csv"><a href="#GlobalLandTemperaturesByCountry-csv" class="headerlink" title="GlobalLandTemperaturesByCountry.csv"></a><code>GlobalLandTemperaturesByCountry.csv</code></h4><p>全球各国平均每月温度数据。</p>
 <table>
-<colgroup>
-<col style="width: 37%" />
-<col style="width: 14%" />
-<col style="width: 48%" />
-</colgroup>
 <thead>
-<tr class="header">
-<th style="text-align: left;">字段名</th>
-<th style="text-align: center;">数据类型</th>
-<th style="text-align: left;">简介</th>
+<tr>
+<th align="left">字段名</th>
+<th align="center">数据类型</th>
+<th align="left">简介</th>
 </tr>
 </thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">dt</td>
-<td style="text-align: center;"><code>date</code></td>
-<td
-style="text-align: left;">按月间隔，自<code>1743-11-01</code>至<code>2013-09-01</code></td>
+<tbody><tr>
+<td align="left">dt</td>
+<td align="center"><code>date</code></td>
+<td align="left">按月间隔，自<code>1743-11-01</code>至<code>2013-09-01</code></td>
 </tr>
-<tr class="even">
-<td style="text-align: left;">AverageTemperature</td>
-<td style="text-align: center;"><code>double</code></td>
-<td style="text-align: left;">平均温度</td>
+<tr>
+<td align="left">AverageTemperature</td>
+<td align="center"><code>double</code></td>
+<td align="left">平均温度</td>
 </tr>
-<tr class="odd">
-<td style="text-align: left;">AverageTemperatureUncertainty</td>
-<td style="text-align: center;"><code>double</code></td>
-<td style="text-align: left;">平均温度区间</td>
+<tr>
+<td align="left">AverageTemperatureUncertainty</td>
+<td align="center"><code>double</code></td>
+<td align="left">平均温度区间</td>
 </tr>
-<tr class="even">
-<td style="text-align: left;">Country</td>
-<td style="text-align: center;"><code>character</code></td>
-<td style="text-align: left;">国家名称</td>
+<tr>
+<td align="left">Country</td>
+<td align="center"><code>character</code></td>
+<td align="left">国家名称</td>
 </tr>
-</tbody>
-</table>
-<h4
-id="globallandtemperaturesbystatecsv"><code>GlobalLandTemperaturesByState.csv</code></h4>
-<p>全球按各国一级行政区（省、州、自治区等）分平均每月温度数据。</p>
+</tbody></table>
+<h4 id="GlobalLandTemperaturesByState-csv"><a href="#GlobalLandTemperaturesByState-csv" class="headerlink" title="GlobalLandTemperaturesByState.csv"></a><code>GlobalLandTemperaturesByState.csv</code></h4><p>全球按各国一级行政区（省、州、自治区等）分平均每月温度数据。</p>
 <table>
-<colgroup>
-<col style="width: 37%" />
-<col style="width: 14%" />
-<col style="width: 48%" />
-</colgroup>
 <thead>
-<tr class="header">
-<th style="text-align: left;">字段名</th>
-<th style="text-align: center;">数据类型</th>
-<th style="text-align: left;">简介</th>
+<tr>
+<th align="left">字段名</th>
+<th align="center">数据类型</th>
+<th align="left">简介</th>
 </tr>
 </thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">dt</td>
-<td style="text-align: center;"><code>date</code></td>
-<td
-style="text-align: left;">按月间隔，自<code>1855-05-01</code>至<code>2013-09-01</code></td>
+<tbody><tr>
+<td align="left">dt</td>
+<td align="center"><code>date</code></td>
+<td align="left">按月间隔，自<code>1855-05-01</code>至<code>2013-09-01</code></td>
 </tr>
-<tr class="even">
-<td style="text-align: left;">AverageTemperature</td>
-<td style="text-align: center;"><code>double</code></td>
-<td style="text-align: left;">平均温度</td>
+<tr>
+<td align="left">AverageTemperature</td>
+<td align="center"><code>double</code></td>
+<td align="left">平均温度</td>
 </tr>
-<tr class="odd">
-<td style="text-align: left;">AverageTemperatureUncertainty</td>
-<td style="text-align: center;"><code>double</code></td>
-<td style="text-align: left;">平均温度区间</td>
+<tr>
+<td align="left">AverageTemperatureUncertainty</td>
+<td align="center"><code>double</code></td>
+<td align="left">平均温度区间</td>
 </tr>
-<tr class="even">
-<td style="text-align: left;">State</td>
-<td style="text-align: center;"><code>character</code></td>
-<td style="text-align: left;">一级行政区名称</td>
+<tr>
+<td align="left">State</td>
+<td align="center"><code>character</code></td>
+<td align="left">一级行政区名称</td>
 </tr>
-<tr class="odd">
-<td style="text-align: left;">Country</td>
-<td style="text-align: center;"><code>character</code></td>
-<td style="text-align: left;">国家名称</td>
+<tr>
+<td align="left">Country</td>
+<td align="center"><code>character</code></td>
+<td align="left">国家名称</td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
 <p>本数据仅包括以下七个国家或地区：澳大利亚、巴西、中国（不含港澳台）、加拿大、印度、俄罗斯、美国。</p>
-<h4
-id="globallandtemperaturesbymajorcitycsv"><code>GlobalLandTemperaturesByMajorCity.csv</code></h4>
-<p>全球主要城市平均每月温度数据</p>
+<h4 id="GlobalLandTemperaturesByMajorCity-csv"><a href="#GlobalLandTemperaturesByMajorCity-csv" class="headerlink" title="GlobalLandTemperaturesByMajorCity.csv"></a><code>GlobalLandTemperaturesByMajorCity.csv</code></h4><p>全球主要城市平均每月温度数据</p>
 <table>
-<colgroup>
-<col style="width: 37%" />
-<col style="width: 14%" />
-<col style="width: 48%" />
-</colgroup>
 <thead>
-<tr class="header">
-<th style="text-align: left;">字段名</th>
-<th style="text-align: center;">数据类型</th>
-<th style="text-align: left;">简介</th>
+<tr>
+<th align="left">字段名</th>
+<th align="center">数据类型</th>
+<th align="left">简介</th>
 </tr>
 </thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">dt</td>
-<td style="text-align: center;"><code>date</code></td>
-<td
-style="text-align: left;">按月间隔，自<code>1849-01-01</code>至<code>2013-09-01</code></td>
+<tbody><tr>
+<td align="left">dt</td>
+<td align="center"><code>date</code></td>
+<td align="left">按月间隔，自<code>1849-01-01</code>至<code>2013-09-01</code></td>
 </tr>
-<tr class="even">
-<td style="text-align: left;">AverageTemperature</td>
-<td style="text-align: center;"><code>double</code></td>
-<td style="text-align: left;">平均温度</td>
+<tr>
+<td align="left">AverageTemperature</td>
+<td align="center"><code>double</code></td>
+<td align="left">平均温度</td>
 </tr>
-<tr class="odd">
-<td style="text-align: left;">AverageTemperatureUncertainty</td>
-<td style="text-align: center;"><code>double</code></td>
-<td style="text-align: left;">平均温度区间</td>
+<tr>
+<td align="left">AverageTemperatureUncertainty</td>
+<td align="center"><code>double</code></td>
+<td align="left">平均温度区间</td>
 </tr>
-<tr class="even">
-<td style="text-align: left;">City</td>
-<td style="text-align: center;"><code>character</code></td>
-<td style="text-align: left;">城市名称</td>
+<tr>
+<td align="left">City</td>
+<td align="center"><code>character</code></td>
+<td align="left">城市名称</td>
 </tr>
-<tr class="odd">
-<td style="text-align: left;">Country</td>
-<td style="text-align: center;"><code>character</code></td>
-<td style="text-align: left;">国家名称</td>
+<tr>
+<td align="left">Country</td>
+<td align="center"><code>character</code></td>
+<td align="left">国家名称</td>
 </tr>
-<tr class="even">
-<td style="text-align: left;">Latitude</td>
-<td style="text-align: center;"><code>character</code></td>
-<td style="text-align: left;">城市经度</td>
+<tr>
+<td align="left">Latitude</td>
+<td align="center"><code>character</code></td>
+<td align="left">城市经度</td>
 </tr>
-<tr class="odd">
-<td style="text-align: left;">Longitude</td>
-<td style="text-align: center;"><code>character</code></td>
-<td style="text-align: left;">城市纬度</td>
+<tr>
+<td align="left">Longitude</td>
+<td align="center"><code>character</code></td>
+<td align="left">城市纬度</td>
 </tr>
-</tbody>
-</table>
-<h4
-id="globallandtemperaturesbycitycsv"><code>GlobalLandTemperaturesByCity.csv</code></h4>
-<p>全球城市平均每月温度数据</p>
+</tbody></table>
+<h4 id="GlobalLandTemperaturesByCity-csv"><a href="#GlobalLandTemperaturesByCity-csv" class="headerlink" title="GlobalLandTemperaturesByCity.csv"></a><code>GlobalLandTemperaturesByCity.csv</code></h4><p>全球城市平均每月温度数据</p>
 <table>
-<colgroup>
-<col style="width: 37%" />
-<col style="width: 14%" />
-<col style="width: 48%" />
-</colgroup>
 <thead>
-<tr class="header">
-<th style="text-align: left;">字段名</th>
-<th style="text-align: center;">数据类型</th>
-<th style="text-align: left;">简介</th>
+<tr>
+<th align="left">字段名</th>
+<th align="center">数据类型</th>
+<th align="left">简介</th>
 </tr>
 </thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">dt</td>
-<td style="text-align: center;"><code>date</code></td>
-<td
-style="text-align: left;">按月间隔，自<code>1743-11-01</code>至<code>2013-09-01</code></td>
+<tbody><tr>
+<td align="left">dt</td>
+<td align="center"><code>date</code></td>
+<td align="left">按月间隔，自<code>1743-11-01</code>至<code>2013-09-01</code></td>
 </tr>
-<tr class="even">
-<td style="text-align: left;">AverageTemperature</td>
-<td style="text-align: center;"><code>double</code></td>
-<td style="text-align: left;">平均温度</td>
+<tr>
+<td align="left">AverageTemperature</td>
+<td align="center"><code>double</code></td>
+<td align="left">平均温度</td>
 </tr>
-<tr class="odd">
-<td style="text-align: left;">AverageTemperatureUncertainty</td>
-<td style="text-align: center;"><code>double</code></td>
-<td style="text-align: left;">平均温度区间</td>
+<tr>
+<td align="left">AverageTemperatureUncertainty</td>
+<td align="center"><code>double</code></td>
+<td align="left">平均温度区间</td>
 </tr>
-<tr class="even">
-<td style="text-align: left;">City</td>
-<td style="text-align: center;"><code>character</code></td>
-<td style="text-align: left;">城市名称</td>
+<tr>
+<td align="left">City</td>
+<td align="center"><code>character</code></td>
+<td align="left">城市名称</td>
 </tr>
-<tr class="odd">
-<td style="text-align: left;">Country</td>
-<td style="text-align: center;"><code>character</code></td>
-<td style="text-align: left;">国家名称</td>
+<tr>
+<td align="left">Country</td>
+<td align="center"><code>character</code></td>
+<td align="left">国家名称</td>
 </tr>
-<tr class="even">
-<td style="text-align: left;">Latitude</td>
-<td style="text-align: center;"><code>character</code></td>
-<td style="text-align: left;">城市经度</td>
+<tr>
+<td align="left">Latitude</td>
+<td align="center"><code>character</code></td>
+<td align="left">城市经度</td>
 </tr>
-<tr class="odd">
-<td style="text-align: left;">Longitude</td>
-<td style="text-align: center;"><code>character</code></td>
-<td style="text-align: left;">城市纬度</td>
+<tr>
+<td align="left">Longitude</td>
+<td align="center"><code>character</code></td>
+<td align="left">城市纬度</td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
 <blockquote>
 <p>该数据表包括前述<strong>主要城市</strong>数据表中的内容且值基本一致。</p>
 </blockquote>
-<h3 id="数据预处理-1">数据预处理</h3>
-<p>数据处理主要是通过R语言完成的，详细的处理过程可以参考<code>map.Rmd</code>文件。以下是用到的主要数据变量以及其来源：</p>
+<h3 id="数据预处理-1"><a href="#数据预处理-1" class="headerlink" title="数据预处理"></a>数据预处理</h3><p>数据处理主要是通过R语言完成的，详细的处理过程可以参考<code>map.Rmd</code>文件。以下是用到的主要数据变量以及其来源：</p>
 <table>
-<colgroup>
-<col style="width: 48%" />
-<col style="width: 51%" />
-</colgroup>
 <thead>
-<tr class="header">
+<tr>
 <th>数据变量名称</th>
 <th>数据来源</th>
 </tr>
 </thead>
-<tbody>
-<tr class="odd">
+<tbody><tr>
 <td><code>df_global</code></td>
 <td><code>GlobalTemperatures.csv</code></td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>df_by_states</code></td>
 <td><code>GlobalLandTemperaturesByState</code></td>
 </tr>
-<tr class="odd">
+<tr>
 <td><code>df_by_major_city</code></td>
 <td><code>GlobalLandTemperaturesByMajorCity</code></td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>df_by_city</code></td>
 <td><code>GlobalLandTemperaturesByCity</code></td>
 </tr>
-<tr class="odd">
+<tr>
 <td><code>averages_10_years</code></td>
 <td>基于<code>df_global</code>的处理结果</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>averages_10_years_by_major_city</code></td>
 <td>基于<code>df_by_major_city</code>的处理结果</td>
 </tr>
-<tr class="odd">
+<tr>
 <td><code>averages_10_years_by_city</code></td>
 <td>基于<code>df_by_city</code>的处理结果</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>df_yearly_avg</code></td>
 <td>基于<code>df_global</code>的处理结果</td>
 </tr>
-<tr class="odd">
+<tr>
 <td><code>df_monthly_avg</code></td>
 <td>基于<code>df_global</code>的处理结果</td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
 <p>这样是否符合您的要求？</p>
 <p>这样的表格形式可以清晰地表示数据的来源和处理，使得读者更容易理解。</p>
-<h2 id="shiny程序">shiny程序</h2>
-<h3 id="ui">UI</h3>
-<h4 id="界面设置">界面设置</h4>
-<p>最后的用户界面展示如下：<br />
-<img src="/assets/image-20231101165856137.png"
-alt="image-20231101165856137" /><br />
-在本应用中，我们采用了<code>dashboardPage</code>来构建一个具有标题、侧边栏和主体内容的仪表板布局。</p>
-<h5 id="侧边栏">侧边栏</h5>
-<p>侧边栏的设计旨在提供交互性功能与简要介绍：</p>
+<h2 id="shiny程序"><a href="#shiny程序" class="headerlink" title="shiny程序"></a>shiny程序</h2><h3 id="UI"><a href="#UI" class="headerlink" title="UI"></a>UI</h3><h4 id="界面设置"><a href="#界面设置" class="headerlink" title="界面设置"></a>界面设置</h4><p>最后的用户界面展示如下：<br><img src="/assets/image-20231101165856137.png" alt="image-20231101165856137"><br>在本应用中，我们采用了<code>dashboardPage</code>来构建一个具有标题、侧边栏和主体内容的仪表板布局。</p>
+<h5 id="侧边栏"><a href="#侧边栏" class="headerlink" title="侧边栏"></a>侧边栏</h5><p>侧边栏的设计旨在提供交互性功能与简要介绍：</p>
 <ul>
 <li><strong>时间刻度选择</strong>：通过<code>selectizeInput</code>，用户可以选择所需的时间刻度。</li>
 <li><strong>重置功能</strong>：设有一个按钮，允许用户重置曲线到初始状态。</li>
 <li><strong>应用介绍</strong>：为用户提供该应用的基本说明与操作指南。</li>
 </ul>
-<h5 id="主体">主体</h5>
-<p>主体部分的展示区域被设计为两行，附带一个条件性显示的行：</p>
+<h5 id="主体"><a href="#主体" class="headerlink" title="主体"></a>主体</h5><p>主体部分的展示区域被设计为两行，附带一个条件性显示的行：</p>
 <ul>
-<li><strong>第一行</strong>：
-<ul>
+<li><strong>第一行</strong>：<ul>
 <li><strong>左侧</strong>：展示了一些核心的统计信息，这部分内容通过<code>uiOutput</code>动态呈现。</li>
 <li><strong>右侧</strong>：展示了一个全球气温数据的世界地图，供用户进行交互查看，通过<code>echarts4rOutput</code>输出。</li>
-</ul></li>
-<li><strong>第二行</strong>：
-<ul>
+</ul>
+</li>
+<li><strong>第二行</strong>：<ul>
 <li><strong>左侧</strong>：根据用户在世界地图上的点击，动态显示所选国家的详细气温地图，通过<code>echarts4rOutput</code>输出。</li>
 <li><strong>右侧</strong>：展示了与所选地区匹配的气温趋势折线图，通过<code>echarts4rOutput</code>输出。</li>
-</ul></li>
+</ul>
+</li>
 <li><strong>条件性显示的第三行</strong>：只有当用户在侧边栏选择“每月”作为时间刻度时，此行才会显示，展示对应的时间序列数据分解，内容通过<code>plotOutput</code>输出。</li>
 </ul>
-<h4 id="样式设置">样式设置</h4>
-<p>在本应用中，我们通过CSS对字体和不同分类的字号进行了调整：</p>
+<h4 id="样式设置"><a href="#样式设置" class="headerlink" title="样式设置"></a>样式设置</h4><p>在本应用中，我们通过CSS对字体和不同分类的字号进行了调整：</p>
 <ul>
-<li><p><strong>字体引入</strong>：我们采用了“霞鹜文楷”字体，这是一款公开的TTF格式字体。为确保其正确加载，我们将字体文件存放在了项目的<code>www</code>目录下。有关此字体的更多信息，可以参考其<a
-target="_blank" rel="noopener" href="https://github.com/lxgw/LxgwWenKai">Github页面</a>。</p></li>
-<li><p><strong>CSS样式设置</strong>：通过内嵌CSS并使用类选择器，我们为不同的文本部分设定了适当的字号和样式，确保整体设计的一致性。</p></li>
+<li><p><strong>字体引入</strong>：我们采用了“霞鹜文楷”字体，这是一款公开的TTF格式字体。为确保其正确加载，我们将字体文件存放在了项目的<code>www</code>目录下。有关此字体的更多信息，可以参考其<a target="_blank" rel="noopener" href="https://github.com/lxgw/LxgwWenKai">Github页面</a>。</p>
+</li>
+<li><p><strong>CSS样式设置</strong>：通过内嵌CSS并使用类选择器，我们为不同的文本部分设定了适当的字号和样式，确保整体设计的一致性。</p>
+</li>
 </ul>
-<h4 id="自定义js">自定义JS</h4>
-<p>在本项目中，为了整合自定义的JavaScript代码，我们采用了<code>shinyjs</code>库。为确保JavaScript能够在UI中正确初始化和运行，我们在UI部分引入了<code>useShinyjs()</code>。</p>
+<h4 id="自定义JS"><a href="#自定义JS" class="headerlink" title="自定义JS"></a>自定义JS</h4><p>在本项目中，为了整合自定义的JavaScript代码，我们采用了<code>shinyjs</code>库。为确保JavaScript能够在UI中正确初始化和运行，我们在UI部分引入了<code>useShinyjs()</code>。</p>
 <p>利用<code>extendShinyjs</code>函数，我们将自定义的JavaScript代码与其对应的函数名建立了联系，这为后续在server部分调用这些功能提供了便利。</p>
 <p>具体来说，我们定义了两个JavaScript函数：<code>updateText</code>和<code>updateIndex</code>。这两个函数在某些交互事件触发时起到关键作用：</p>
 <ul>
 <li><code>updateText</code>：当用户点击地图上的某个国家或城市时，此函数被触发，用于更新<code>input$clicked_country</code>和<code>input$type</code>的值。</li>
 <li><code>updateIndex</code>：当时间轴发生切换时，此函数负责更新代表不同年代的<code>input$decade_id</code>值。</li>
 </ul>
-<h3 id="server">server</h3>
-<h4 id="数据">数据</h4>
-<h5 id="地图相关的数据处理">地图相关的数据处理</h5>
-<p>在展示某些特定国家的数据时，我们注意到默认的省级行政区域划分并不能完全满足我们的展示需求。为了获得更加精细的地图信息，我们为俄罗斯和巴西手动引入了<a
-target="_blank" rel="noopener" href="https://gadm.org/maps.html">GADM
-maps</a>提供的高精度地图数据。</p>
-<p>对于中国，其省级行政区划地图以及在全球地图中的对应位置，我们采用了来自<a
-target="_blank" rel="noopener" href="https://echarts4r-maps.john-coene.com/">Maps for 'echarts4r' •
-echarts4r.maps (john-coene.com)</a>的数据。</p>
+<h3 id="server"><a href="#server" class="headerlink" title="server"></a>server</h3><h4 id="数据"><a href="#数据" class="headerlink" title="数据"></a>数据</h4><h5 id="地图相关的数据处理"><a href="#地图相关的数据处理" class="headerlink" title="地图相关的数据处理"></a>地图相关的数据处理</h5><p>在展示某些特定国家的数据时，我们注意到默认的省级行政区域划分并不能完全满足我们的展示需求。为了获得更加精细的地图信息，我们为俄罗斯和巴西手动引入了<a target="_blank" rel="noopener" href="https://gadm.org/maps.html">GADM maps</a>提供的高精度地图数据。</p>
+<p>对于中国，其省级行政区划地图以及在全球地图中的对应位置，我们采用了来自<a target="_blank" rel="noopener" href="https://echarts4r-maps.john-coene.com/">Maps for ‘echarts4r’ • echarts4r.maps (john-coene.com)</a>的数据。</p>
 <p>但是，值得注意的是，由于不同来源的数据中，地名命名可能存在不统一或微妙的差异，我们需要手动进行一些地名字符串的转换和匹配，这是为了确保数据之间的准确对应和无缝展示。</p>
 <p><strong>免责声明</strong>：虽然我们已经尽最大努力确保数据的准确性和完整性，但我们不能对因数据错误或遗漏所导致的任何损失或损害承担责任。</p>
-<h5 id="预先获取的数据">预先获取的数据</h5>
-<p>在本项目中，关键的数据集如<code>df_yearly_avg</code>、<code>df_monthly_avg</code>和<code>averages_10_years</code>等已经通过<code>map.Rmd</code>预处理并生成。为了优化性能和提高加载速度，这些预处理过的数据被保存在与<code>app.R</code>同一路径下的<code>base.RData</code>文件中。</p>
-<p>在应用启动时，通过使用<code>load("base.RData")</code>命令，我们可以直接加载这些数据，而无需再次进行数据预处理。这种方法不仅节省了每次启动应用时的数据处理时间，还减轻了服务器磁盘的负担，确保了应用的流畅运行。</p>
-<h5 id="反应值">反应值</h5>
-<p>在Shiny应用中，<strong>反应性</strong>是核心的概念。它指的是当某些变量或输入发生改变时，与它们相关的输出或计算会自动更新。</p>
+<h5 id="预先获取的数据"><a href="#预先获取的数据" class="headerlink" title="预先获取的数据"></a>预先获取的数据</h5><p>在本项目中，关键的数据集如<code>df_yearly_avg</code>、<code>df_monthly_avg</code>和<code>averages_10_years</code>等已经通过<code>map.Rmd</code>预处理并生成。为了优化性能和提高加载速度，这些预处理过的数据被保存在与<code>app.R</code>同一路径下的<code>base.RData</code>文件中。</p>
+<p>在应用启动时，通过使用<code>load(&quot;base.RData&quot;)</code>命令，我们可以直接加载这些数据，而无需再次进行数据预处理。这种方法不仅节省了每次启动应用时的数据处理时间，还减轻了服务器磁盘的负担，确保了应用的流畅运行。</p>
+<h5 id="反应值"><a href="#反应值" class="headerlink" title="反应值"></a>反应值</h5><p>在Shiny应用中，<strong>反应性</strong>是核心的概念。它指的是当某些变量或输入发生改变时，与它们相关的输出或计算会自动更新。</p>
 <p>在Shiny中，有两类反应性元素：</p>
-<ol type="1">
+<ol>
 <li><strong>用户输入元素</strong>：这些是与<code>input</code>相关的，通常由用户在前端界面中进行操作来设置。</li>
 <li><strong>自定义反应性表达式</strong>：这些是在服务器代码<code>server</code>部分使用<code>reactive()</code>函数创建的。</li>
 </ol>
@@ -564,19 +483,16 @@ echarts4r.maps (john-coene.com)</a>的数据。</p>
 <li><code>reactive()</code>函数创建的反应性表达式需要像函数一样调用，例如<code>reactive_value()</code>。</li>
 </ul>
 <p>在本课程项目中，反应性值主要通过以下三种途径设置：</p>
-<ol type="1">
-<li><strong>设置JS Handle</strong>:
-涉及到前端界面交互的JavaScript代码，正如在[[课设#UI#自定义JS]]部分所见。</li>
-<li><strong>UI中的设置</strong>:
-主要在侧边栏中设置，例如选择时间尺度为“年”或“月”。这个选择会影响后续数据的展示和处理方式。决定是否显示第三行图像</li>
-<li><strong>通过<code>reactive</code>函数设置</strong>:
-<ul>
+<ol>
+<li><strong>设置JS Handle</strong>: 涉及到前端界面交互的JavaScript代码，正如在[[课设#UI#自定义JS]]部分所见。</li>
+<li><strong>UI中的设置</strong>: 主要在侧边栏中设置，例如选择时间尺度为“年”或“月”。这个选择会影响后续数据的展示和处理方式。决定是否显示第三行图像</li>
+<li><strong>通过<code>reactive</code>函数设置</strong>:<ul>
 <li><code>avg_per</code>：决定时间序列数据的粒度，可以是年或月。</li>
 <li><code>main_df_rv_yearly</code>和<code>main_df_rv_monthly</code>：存储了用户点击的特定国家或城市对应的年度和月度气温数据。对应于<strong>折线图</strong>中的数据。</li>
-</ul></li>
+</ul>
+</li>
 </ol>
-<h4 id="外部函数">外部函数</h4>
-<p>在shiny应用的server部分，我们依赖于多个外部函数来完成特定的计算和数据处理任务。这些函数被集中保存在<code>functions.R</code>文件中。为了确保这些函数在应用中可用，我们在文档的开始部分使用了<code>source("functions.R")</code>来加载这些外部函数。</p>
+<h4 id="外部函数"><a href="#外部函数" class="headerlink" title="外部函数"></a>外部函数</h4><p>在shiny应用的server部分，我们依赖于多个外部函数来完成特定的计算和数据处理任务。这些函数被集中保存在<code>functions.R</code>文件中。为了确保这些函数在应用中可用，我们在文档的开始部分使用了<code>source(&quot;functions.R&quot;)</code>来加载这些外部函数。</p>
 <p>其中，一些主要的函数包括：</p>
 <ul>
 <li><code>calculate_yearly_avg_for_country</code>：用于计算特定国家的年度平均温度。</li>
@@ -585,70 +501,57 @@ echarts4r.maps (john-coene.com)</a>的数据。</p>
 <li><code>get_city_by_country</code>：根据国家名称获取其主要城市的信息。</li>
 </ul>
 <p>通过这种方式，我们能够保持主程序的简洁性，同时将特定的功能和逻辑封装在独立的函数中，提高代码的可读性和维护性。</p>
-<h4 id="图像绘制">图像绘制</h4>
-<p><img src="/assets/image-20231101165935627.png"
-alt="image-20231101165935627" /></p>
-<p>该项目中主要涉及到三种不同的图形：<br />
-地图、折线图，时间序列分解图，下面分别进行介绍</p>
-<h5 id="地图">地图</h5>
-<p><img src="/assets/image-20231101170020496.png" alt="image-20231101170020496" style="zoom:35%;" />
-<img src="/assets/image-20231101170421003.png" alt="image-20231101170421003" style="zoom:70%;" /></p>
+<h4 id="图像绘制"><a href="#图像绘制" class="headerlink" title="图像绘制"></a>图像绘制</h4><p><img src="/assets/image-20231101165935627.png" alt="image-20231101165935627"></p>
+<p>该项目中主要涉及到三种不同的图形：<br>地图、折线图，时间序列分解图，下面分别进行介绍</p>
+<h5 id="地图"><a href="#地图" class="headerlink" title="地图"></a>地图</h5><p><img src="/assets/image-20231101170020496.png" alt="image-20231101170020496" style="zoom:35%;" />            <img src="/assets/image-20231101170421003.png" alt="image-20231101170421003" style="zoom:70%;" />    </p>
 <p>该部分是整个项目的核心，对温度数据进行了地图展示。不仅仅是一个静态的地图，而是通过结合<code>echarts</code>、<code>echarts4R</code>和<code>JS</code>技术，实现了动态交互的功能：</p>
-<ol type="1">
-<li><p><strong>时间轴的展示</strong>：为用户提供了时间上的参考，使其可以在不同年份间流畅地切换，观察温度变化。</p></li>
-<li><p><strong>国家温度数据的可视化</strong>：各国在地图上的颜色深浅反映了其温度数据，使用户可以直观地看到各国的温度分布。</p></li>
-<li><p><strong>城市点的标示</strong>：在地图上，主要城市都以点的形式进行了标记，为用户提供了更具体的地理信息。</p></li>
-<li><p><strong>城市和国家的点击事件</strong>：用户可以点击特定的国家或城市。当发生这样的点击事件时，应用会展示与被点击地点相关的详细温度数据。</p></li>
+<ol>
+<li><p><strong>时间轴的展示</strong>：为用户提供了时间上的参考，使其可以在不同年份间流畅地切换，观察温度变化。</p>
+</li>
+<li><p><strong>国家温度数据的可视化</strong>：各国在地图上的颜色深浅反映了其温度数据，使用户可以直观地看到各国的温度分布。</p>
+</li>
+<li><p><strong>城市点的标示</strong>：在地图上，主要城市都以点的形式进行了标记，为用户提供了更具体的地理信息。</p>
+</li>
+<li><p><strong>城市和国家的点击事件</strong>：用户可以点击特定的国家或城市。当发生这样的点击事件时，应用会展示与被点击地点相关的详细温度数据。</p>
+</li>
 </ol>
-<h6 id="国家与城市放在联合渲染">国家与城市放在联合渲染</h6>
-<p>在此项目中，我们参考了来自<a
-target="_blank" rel="noopener" href="https://echarts4r.john-coene.com/">john-coene.com</a>的<a
-target="_blank" rel="noopener" href="https://echarts4r.john-coene.com/articles/map">地图</a>和<a
-target="_blank" rel="noopener" href="https://echarts4r.john-coene.com/articles/timeline">时间轴</a>实例，采用<code>echarts4r</code>库来制作时间轴动态地图。</p>
+<h6 id="国家与城市放在联合渲染"><a href="#国家与城市放在联合渲染" class="headerlink" title="国家与城市放在联合渲染"></a>国家与城市放在联合渲染</h6><p>在此项目中，我们参考了来自<a target="_blank" rel="noopener" href="https://echarts4r.john-coene.com/">john-coene.com</a>的<a target="_blank" rel="noopener" href="https://echarts4r.john-coene.com/articles/map">地图</a>和<a target="_blank" rel="noopener" href="https://echarts4r.john-coene.com/articles/timeline">时间轴</a>实例，采用<code>echarts4r</code>库来制作时间轴动态地图。</p>
 <p>首先，我们利用以下代码为不同国家的数据按年代设置时间轴：</p>
 <figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">visual_map <span class="operator">&lt;-</span> averages_10_years <span class="operator">%&gt;%</span></span><br><span class="line">      group_by<span class="punctuation">(</span>end_year<span class="punctuation">)</span> <span class="operator">%&gt;%</span></span><br><span class="line">      e_charts<span class="punctuation">(</span>Country<span class="punctuation">,</span> timeline <span class="operator">=</span> <span class="literal">TRUE</span><span class="punctuation">)</span> <span class="operator">%&gt;%</span></span><br><span class="line">      e_map<span class="punctuation">(</span>avg_temp<span class="punctuation">,</span> roam <span class="operator">=</span> <span class="literal">TRUE</span><span class="punctuation">,</span> map <span class="operator">=</span> <span class="string">&quot;world&quot;</span><span class="punctuation">,</span> geoIndex <span class="operator">=</span> <span class="number">0</span><span class="punctuation">)</span> <span class="operator">%&gt;%</span></span><br><span class="line">      e_timeline_opts<span class="punctuation">(</span>realtime <span class="operator">=</span> <span class="literal">TRUE</span><span class="punctuation">,</span> axis_type <span class="operator">=</span> <span class="string">&#x27;category&#x27;</span><span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
+
 <p>然而，我们发现<code>echarts4r</code>在实现稍微复杂的效果上，特别是将城市点同时显示在地图上时，没有提供直接的支持。因此，为了达到我们的需求，做了以下事情：</p>
-<ol type="1">
+<ol>
 <li>分别渲染两个结构体<code>visual_map</code>和<code>visual_scatter</code>。</li>
-<li>根据Apache ECharts的<a
-target="_blank" rel="noopener" href="https://echarts.apache.org/zh/option.html#series-effectScatter">官方文档</a>，我们了解到两者的具体结构，并将其合并。</li>
+<li>根据Apache ECharts的<a target="_blank" rel="noopener" href="https://echarts.apache.org/zh/option.html#series-effectScatter">官方文档</a>，我们了解到两者的具体结构，并将其合并。</li>
 </ol>
 <p>接下来的代码是我们为了合并这两个结构体而编写的：</p>
 <figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span><span class="punctuation">(</span>i <span class="keyword">in</span> <span class="built_in">seq_along</span><span class="punctuation">(</span>visual_scatter<span class="punctuation">[[</span><span class="string">&quot;x&quot;</span><span class="punctuation">]</span><span class="punctuation">]</span><span class="punctuation">[[</span><span class="string">&quot;opts&quot;</span><span class="punctuation">]</span><span class="punctuation">]</span><span class="punctuation">[[</span><span class="string">&quot;options&quot;</span><span class="punctuation">]</span><span class="punctuation">]</span><span class="punctuation">)</span><span class="punctuation">)</span><span class="punctuation">&#123;</span></span><br><span class="line">      year <span class="operator">&lt;-</span> <span class="built_in">min</span><span class="punctuation">(</span><span class="number">1750</span> <span class="operator">+</span> <span class="punctuation">(</span>i<span class="operator">-</span><span class="number">1</span><span class="punctuation">)</span> <span class="operator">*</span> <span class="number">10</span><span class="punctuation">,</span> <span class="number">2013</span><span class="punctuation">)</span></span><br><span class="line">      df_temp <span class="operator">&lt;-</span> averages_10_years_by_major_city <span class="operator">%&gt;%</span> filter<span class="punctuation">(</span>end_year <span class="operator">==</span> year<span class="punctuation">)</span></span><br><span class="line">      </span><br><span class="line">      res <span class="operator">&lt;-</span> lapply<span class="punctuation">(</span><span class="number">1</span><span class="operator">:</span>nrow<span class="punctuation">(</span>df_temp<span class="punctuation">)</span><span class="punctuation">,</span> <span class="keyword">function</span><span class="punctuation">(</span>i<span class="punctuation">)</span> <span class="punctuation">&#123;</span></span><br><span class="line">        <span class="built_in">list</span><span class="punctuation">(</span></span><br><span class="line">          name <span class="operator">=</span> df_temp<span class="operator">$</span>City<span class="punctuation">[</span>i<span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">          value <span class="operator">=</span> <span class="built_in">list</span><span class="punctuation">(</span>df_temp<span class="operator">$</span>lon<span class="punctuation">[</span>i<span class="punctuation">]</span><span class="punctuation">,</span> df_temp<span class="operator">$</span>lat<span class="punctuation">[</span>i<span class="punctuation">]</span><span class="punctuation">,</span> df_temp<span class="operator">$</span>avg_temp_city<span class="punctuation">[</span>i<span class="punctuation">]</span><span class="punctuation">)</span></span><br><span class="line">        <span class="punctuation">)</span></span><br><span class="line">      <span class="punctuation">&#125;</span><span class="punctuation">)</span></span><br><span class="line">      </span><br><span class="line">      visual_scatter<span class="punctuation">[[</span><span class="string">&quot;x&quot;</span><span class="punctuation">]</span><span class="punctuation">]</span><span class="punctuation">[[</span><span class="string">&quot;opts&quot;</span><span class="punctuation">]</span><span class="punctuation">]</span><span class="punctuation">[[</span><span class="string">&quot;options&quot;</span><span class="punctuation">]</span><span class="punctuation">]</span><span class="punctuation">[[</span>i<span class="punctuation">]</span><span class="punctuation">]</span><span class="punctuation">[[</span><span class="string">&quot;series&quot;</span><span class="punctuation">]</span><span class="punctuation">]</span><span class="punctuation">[[</span><span class="number">1</span><span class="punctuation">]</span><span class="punctuation">]</span><span class="punctuation">[[</span><span class="string">&quot;data&quot;</span><span class="punctuation">]</span><span class="punctuation">]</span> <span class="operator">&lt;-</span> res</span><br><span class="line">      visual_scatter<span class="punctuation">[[</span><span class="string">&quot;x&quot;</span><span class="punctuation">]</span><span class="punctuation">]</span><span class="punctuation">[[</span><span class="string">&quot;opts&quot;</span><span class="punctuation">]</span><span class="punctuation">]</span><span class="punctuation">[[</span><span class="string">&quot;baseOption&quot;</span><span class="punctuation">]</span><span class="punctuation">]</span><span class="punctuation">[[</span><span class="string">&quot;series&quot;</span><span class="punctuation">]</span><span class="punctuation">]</span><span class="punctuation">[[</span><span class="number">2</span><span class="punctuation">]</span><span class="punctuation">]</span> <span class="operator">&lt;-</span></span><br><span class="line">        visual_map<span class="punctuation">[[</span><span class="string">&quot;x&quot;</span><span class="punctuation">]</span><span class="punctuation">]</span><span class="punctuation">[[</span><span class="string">&quot;opts&quot;</span><span class="punctuation">]</span><span class="punctuation">]</span><span class="punctuation">[[</span><span class="string">&quot;baseOption&quot;</span><span class="punctuation">]</span><span class="punctuation">]</span><span class="punctuation">[[</span><span class="string">&quot;series&quot;</span><span class="punctuation">]</span><span class="punctuation">]</span><span class="punctuation">[[</span><span class="number">1</span><span class="punctuation">]</span><span class="punctuation">]</span></span><br><span class="line">      visual_scatter<span class="punctuation">[[</span><span class="string">&quot;x&quot;</span><span class="punctuation">]</span><span class="punctuation">]</span><span class="punctuation">[[</span><span class="string">&quot;opts&quot;</span><span class="punctuation">]</span><span class="punctuation">]</span><span class="punctuation">[[</span><span class="string">&quot;options&quot;</span><span class="punctuation">]</span><span class="punctuation">]</span><span class="punctuation">[[</span>i<span class="punctuation">]</span><span class="punctuation">]</span><span class="punctuation">[[</span><span class="string">&quot;series&quot;</span><span class="punctuation">]</span><span class="punctuation">]</span><span class="punctuation">[[</span><span class="number">2</span><span class="punctuation">]</span><span class="punctuation">]</span> <span class="operator">&lt;-</span></span><br><span class="line">        visual_map<span class="punctuation">[[</span><span class="string">&quot;x&quot;</span><span class="punctuation">]</span><span class="punctuation">]</span><span class="punctuation">[[</span><span class="string">&quot;opts&quot;</span><span class="punctuation">]</span><span class="punctuation">]</span><span class="punctuation">[[</span><span class="string">&quot;options&quot;</span><span class="punctuation">]</span><span class="punctuation">]</span><span class="punctuation">[[</span>i<span class="punctuation">]</span><span class="punctuation">]</span><span class="punctuation">[[</span><span class="string">&quot;series&quot;</span><span class="punctuation">]</span><span class="punctuation">]</span><span class="punctuation">[[</span><span class="number">1</span><span class="punctuation">]</span><span class="punctuation">]</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+
 <p>通过上述方法，我们成功地将城市的点和国家的数据整合到了同一张动态时间轴地图中。</p>
-<h6 id="点击事件">点击事件</h6>
-<p>在本项目中，为了处理用户的点击事件，我们采用了<code>echarts4r</code>库中的<code>e_on</code>函数。这个函数允许我们为特定的ECharts组件定义JavaScript回调函数。</p>
-<p>具体地说，<code>e_on</code>的使用是基于<a
-target="_blank" rel="noopener" href="https://echarts4r.john-coene.com/reference/callbacks.html?q=e_on#ref-usage">Callbacks
-— callbacks • echarts4r (john-coene.com)</a>。其中：</p>
+<h6 id="点击事件"><a href="#点击事件" class="headerlink" title="点击事件"></a>点击事件</h6><p>在本项目中，为了处理用户的点击事件，我们采用了<code>echarts4r</code>库中的<code>e_on</code>函数。这个函数允许我们为特定的ECharts组件定义JavaScript回调函数。</p>
+<p>具体地说，<code>e_on</code>的使用是基于<a target="_blank" rel="noopener" href="https://echarts4r.john-coene.com/reference/callbacks.html?q=e_on#ref-usage">Callbacks — callbacks • echarts4r (john-coene.com)</a>。其中：</p>
 <ul>
-<li><code>query</code>参数用于指定我们希望监听的ECharts组件，可以参考<a
-target="_blank" rel="noopener" href="https://echarts.apache.org/zh/option.html#series">Documentation -
-Apache ECharts</a>。</li>
-<li><code>event</code>参数定义了我们要捕捉的具体事件类型，可以参考<a
-target="_blank" rel="noopener" href="https://echarts.apache.org/zh/api.html#events">Documentation -
-Apache ECharts</a>。</li>
+<li><code>query</code>参数用于指定我们希望监听的ECharts组件，可以参考<a target="_blank" rel="noopener" href="https://echarts.apache.org/zh/option.html#series">Documentation - Apache ECharts</a>。</li>
+<li><code>event</code>参数定义了我们要捕捉的具体事件类型，可以参考<a target="_blank" rel="noopener" href="https://echarts.apache.org/zh/api.html#events">Documentation - Apache ECharts</a>。</li>
 <li><code>handler</code>参数则是当该事件被触发时执行的JavaScript函数。</li>
 </ul>
 <p>在以下代码中，我们为两个不同的事件定义了回调函数：</p>
 <figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">...<span class="operator">|&gt;</span></span><br><span class="line">	e_on<span class="punctuation">(</span>query <span class="operator">=</span> <span class="string">&#x27;series&#x27;</span><span class="punctuation">,</span> event<span class="operator">=</span><span class="string">&quot;click&quot;</span><span class="punctuation">,</span> handler <span class="operator">=</span> <span class="string">&quot;function(pa)&#123;console.log(pa.componentSubType);shinyjs.updateText(pa.name, pa.componentSubType);&#125;&quot;</span><span class="punctuation">)</span> <span class="operator">|&gt;</span></span><br><span class="line">    e_on<span class="punctuation">(</span>query <span class="operator">=</span> <span class="string">&#x27;timeline&#x27;</span><span class="punctuation">,</span> event<span class="operator">=</span><span class="string">&quot;timelinechanged&quot;</span><span class="punctuation">,</span> handler <span class="operator">=</span> <span class="string">&quot;function(pa)&#123;console.log(pa);shinyjs.updateIndex(pa.currentIndex)&#125;&quot;</span><span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
-<ol type="1">
-<li><p><strong>点击事件</strong>：<br />
-当用户点击地图上的一个点时，我们捕捉了该点的<code>name</code>属性（即国家或城市的名称）以及<code>componentSubType</code>属性（告诉我们用户点击的是一个国家还是城市）。这些信息然后被传递给<code>shinyjs.updateText</code>函数进行进一步的处理。</p></li>
-<li><p><strong>时间节点改变事件</strong>：<br />
-当用户在时间轴上选择了一个不同的时间点，我们记录了这个点的<code>currentIndex</code>属性（即当前选择的时间点的索引值）。这个值然后被传递给<code>shinyjs.updateIndex</code>函数。</p></li>
+
+<ol>
+<li><p><strong>点击事件</strong>：<br>当用户点击地图上的一个点时，我们捕捉了该点的<code>name</code>属性（即国家或城市的名称）以及<code>componentSubType</code>属性（告诉我们用户点击的是一个国家还是城市）。这些信息然后被传递给<code>shinyjs.updateText</code>函数进行进一步的处理。</p>
+</li>
+<li><p><strong>时间节点改变事件</strong>：<br>当用户在时间轴上选择了一个不同的时间点，我们记录了这个点的<code>currentIndex</code>属性（即当前选择的时间点的索引值）。这个值然后被传递给<code>shinyjs.updateIndex</code>函数。</p>
+</li>
 </ol>
 <p>此外，我们使用了<code>console.log()</code>函数来在浏览器的开发者控制台中打印相关信息。这对于开发和调试过程非常有帮助，因为它允许我们直观地看到在不同操作下触发的事件的详细信息。</p>
-<h5 id="折线图">折线图</h5>
-<p><img src="/assets/image-20231101204307873.png"
-alt="image-20231101204307873" /></p>
+<h5 id="折线图"><a href="#折线图" class="headerlink" title="折线图"></a>折线图</h5><p><img src="/assets/image-20231101204307873.png" alt="image-20231101204307873"></p>
 <p>当用户在地图上点击某一城市时，我们的应用程序会动态地更新并在折线图上展示该城市的平均数据。为了实现这一效果，我们参考并使用了<code>echarts4r</code>库中的<code>e_line_</code>函数。</p>
 <p>具体地说，<code>e_line_</code>函数允许我们在ECharts图表中添加折线系列。结合Shiny的反应性，当用户点击一个城市时，我们可以获取对应的数据，并利用<code>e_line_</code>为当前的图表添加新的折线系列，从而动态展示该城市的平均数据。</p>
 <p>核心的代码如下：</p>
 <figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span><span class="punctuation">(</span>column_name <span class="keyword">in</span> columns_to_plot<span class="punctuation">)</span> <span class="punctuation">&#123;</span></span><br><span class="line">  chart <span class="operator">&lt;-</span> chart <span class="operator">|&gt;</span> e_line_<span class="punctuation">(</span>column_name<span class="punctuation">,</span> name <span class="operator">=</span> column_name<span class="punctuation">)</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
-<h5 id="时序分解">时序分解</h5>
-<p><img src="/assets/image-20231101204333112.png"
-alt="image-20231101204333112" /></p>
+
+<h5 id="时序分解"><a href="#时序分解" class="headerlink" title="时序分解"></a>时序分解</h5><p><img src="/assets/image-20231101204333112.png" alt="image-20231101204333112"></p>
 <p>在时序分解部分，由于<code>echarts4r</code>对这一特定功能的支持并不完善，我们选择直接使用R的基础<code>plot</code>函数进行绘图。这样产生的图像是静态的，与<code>echarts4r</code>所生成的动态互动图表有所不同。</p>
 
   </div>
@@ -677,7 +580,7 @@ alt="image-20231101204333112" /></p>
     
     
       <div id="toc-footer" style="display: none">
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AE%80%E4%BB%8B"><span class="toc-number">1.</span> <span class="toc-text">简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E9%A2%84%E5%A4%84%E7%90%86"><span class="toc-number">2.</span> <span class="toc-text">数据预处理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E4%BB%8B%E7%BB%8D"><span class="toc-number">2.1.</span> <span class="toc-text">数据介绍</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#globaltemperaturescsv"><span class="toc-number">2.1.1.</span> <span class="toc-text">GlobalTemperatures.csv</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#globallandtemperaturesbycountrycsv"><span class="toc-number">2.1.2.</span> <span class="toc-text">GlobalLandTemperaturesByCountry.csv</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#globallandtemperaturesbystatecsv"><span class="toc-number">2.1.3.</span> <span class="toc-text">GlobalLandTemperaturesByState.csv</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#globallandtemperaturesbymajorcitycsv"><span class="toc-number">2.1.4.</span> <span class="toc-text">GlobalLandTemperaturesByMajorCity.csv</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#globallandtemperaturesbycitycsv"><span class="toc-number">2.1.5.</span> <span class="toc-text">GlobalLandTemperaturesByCity.csv</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E9%A2%84%E5%A4%84%E7%90%86-1"><span class="toc-number">2.2.</span> <span class="toc-text">数据预处理</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#shiny%E7%A8%8B%E5%BA%8F"><span class="toc-number">3.</span> <span class="toc-text">shiny程序</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#ui"><span class="toc-number">3.1.</span> <span class="toc-text">UI</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%95%8C%E9%9D%A2%E8%AE%BE%E7%BD%AE"><span class="toc-number">3.1.1.</span> <span class="toc-text">界面设置</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%BE%A7%E8%BE%B9%E6%A0%8F"><span class="toc-number">3.1.1.1.</span> <span class="toc-text">侧边栏</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%B8%BB%E4%BD%93"><span class="toc-number">3.1.1.2.</span> <span class="toc-text">主体</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A0%B7%E5%BC%8F%E8%AE%BE%E7%BD%AE"><span class="toc-number">3.1.2.</span> <span class="toc-text">样式设置</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89js"><span class="toc-number">3.1.3.</span> <span class="toc-text">自定义JS</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#server"><span class="toc-number">3.2.</span> <span class="toc-text">server</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE"><span class="toc-number">3.2.1.</span> <span class="toc-text">数据</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%9C%B0%E5%9B%BE%E7%9B%B8%E5%85%B3%E7%9A%84%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86"><span class="toc-number">3.2.1.1.</span> <span class="toc-text">地图相关的数据处理</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E9%A2%84%E5%85%88%E8%8E%B7%E5%8F%96%E7%9A%84%E6%95%B0%E6%8D%AE"><span class="toc-number">3.2.1.2.</span> <span class="toc-text">预先获取的数据</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%8F%8D%E5%BA%94%E5%80%BC"><span class="toc-number">3.2.1.3.</span> <span class="toc-text">反应值</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%A4%96%E9%83%A8%E5%87%BD%E6%95%B0"><span class="toc-number">3.2.2.</span> <span class="toc-text">外部函数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9B%BE%E5%83%8F%E7%BB%98%E5%88%B6"><span class="toc-number">3.2.3.</span> <span class="toc-text">图像绘制</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%9C%B0%E5%9B%BE"><span class="toc-number">3.2.3.1.</span> <span class="toc-text">地图</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E5%9B%BD%E5%AE%B6%E4%B8%8E%E5%9F%8E%E5%B8%82%E6%94%BE%E5%9C%A8%E8%81%94%E5%90%88%E6%B8%B2%E6%9F%93"><span class="toc-number">3.2.3.1.1.</span> <span class="toc-text">国家与城市放在联合渲染</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E7%82%B9%E5%87%BB%E4%BA%8B%E4%BB%B6"><span class="toc-number">3.2.3.1.2.</span> <span class="toc-text">点击事件</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%8A%98%E7%BA%BF%E5%9B%BE"><span class="toc-number">3.2.3.2.</span> <span class="toc-text">折线图</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%97%B6%E5%BA%8F%E5%88%86%E8%A7%A3"><span class="toc-number">3.2.3.3.</span> <span class="toc-text">时序分解</span></a></li></ol></li></ol></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AE%80%E4%BB%8B"><span class="toc-number">1.</span> <span class="toc-text">简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E9%A2%84%E5%A4%84%E7%90%86"><span class="toc-number">2.</span> <span class="toc-text">数据预处理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E4%BB%8B%E7%BB%8D"><span class="toc-number">2.1.</span> <span class="toc-text">数据介绍</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#GlobalTemperatures-csv"><span class="toc-number">2.1.1.</span> <span class="toc-text">GlobalTemperatures.csv</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#GlobalLandTemperaturesByCountry-csv"><span class="toc-number">2.1.2.</span> <span class="toc-text">GlobalLandTemperaturesByCountry.csv</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#GlobalLandTemperaturesByState-csv"><span class="toc-number">2.1.3.</span> <span class="toc-text">GlobalLandTemperaturesByState.csv</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#GlobalLandTemperaturesByMajorCity-csv"><span class="toc-number">2.1.4.</span> <span class="toc-text">GlobalLandTemperaturesByMajorCity.csv</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#GlobalLandTemperaturesByCity-csv"><span class="toc-number">2.1.5.</span> <span class="toc-text">GlobalLandTemperaturesByCity.csv</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E9%A2%84%E5%A4%84%E7%90%86-1"><span class="toc-number">2.2.</span> <span class="toc-text">数据预处理</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#shiny%E7%A8%8B%E5%BA%8F"><span class="toc-number">3.</span> <span class="toc-text">shiny程序</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#UI"><span class="toc-number">3.1.</span> <span class="toc-text">UI</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%95%8C%E9%9D%A2%E8%AE%BE%E7%BD%AE"><span class="toc-number">3.1.1.</span> <span class="toc-text">界面设置</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%BE%A7%E8%BE%B9%E6%A0%8F"><span class="toc-number">3.1.1.1.</span> <span class="toc-text">侧边栏</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%B8%BB%E4%BD%93"><span class="toc-number">3.1.1.2.</span> <span class="toc-text">主体</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A0%B7%E5%BC%8F%E8%AE%BE%E7%BD%AE"><span class="toc-number">3.1.2.</span> <span class="toc-text">样式设置</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89JS"><span class="toc-number">3.1.3.</span> <span class="toc-text">自定义JS</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#server"><span class="toc-number">3.2.</span> <span class="toc-text">server</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE"><span class="toc-number">3.2.1.</span> <span class="toc-text">数据</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%9C%B0%E5%9B%BE%E7%9B%B8%E5%85%B3%E7%9A%84%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86"><span class="toc-number">3.2.1.1.</span> <span class="toc-text">地图相关的数据处理</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E9%A2%84%E5%85%88%E8%8E%B7%E5%8F%96%E7%9A%84%E6%95%B0%E6%8D%AE"><span class="toc-number">3.2.1.2.</span> <span class="toc-text">预先获取的数据</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%8F%8D%E5%BA%94%E5%80%BC"><span class="toc-number">3.2.1.3.</span> <span class="toc-text">反应值</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%A4%96%E9%83%A8%E5%87%BD%E6%95%B0"><span class="toc-number">3.2.2.</span> <span class="toc-text">外部函数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9B%BE%E5%83%8F%E7%BB%98%E5%88%B6"><span class="toc-number">3.2.3.</span> <span class="toc-text">图像绘制</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%9C%B0%E5%9B%BE"><span class="toc-number">3.2.3.1.</span> <span class="toc-text">地图</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E5%9B%BD%E5%AE%B6%E4%B8%8E%E5%9F%8E%E5%B8%82%E6%94%BE%E5%9C%A8%E8%81%94%E5%90%88%E6%B8%B2%E6%9F%93"><span class="toc-number">3.2.3.1.1.</span> <span class="toc-text">国家与城市放在联合渲染</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E7%82%B9%E5%87%BB%E4%BA%8B%E4%BB%B6"><span class="toc-number">3.2.3.1.2.</span> <span class="toc-text">点击事件</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%8A%98%E7%BA%BF%E5%9B%BE"><span class="toc-number">3.2.3.2.</span> <span class="toc-text">折线图</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%97%B6%E5%BA%8F%E5%88%86%E8%A7%A3"><span class="toc-number">3.2.3.3.</span> <span class="toc-text">时序分解</span></a></li></ol></li></ol></li></ol></li></ol>
       </div>
     
 
